@@ -10,3 +10,9 @@ func TestBuilder_Build(t *testing.T) {
 
 	assert.Equal(t, "John is 23 years old, is 170cm tall and has brown eyes", fullHuman)
 }
+
+func TestBuilder_AddHeight(t *testing.T) {
+	fullHuman := NewHuman().AddHeight(170).Build()
+
+	assert.Equal(t, 170, fullHuman.height)
+}

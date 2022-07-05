@@ -1,10 +1,6 @@
 package builder
 
-import (
-	"fmt"
-)
-
-type human struct {
+type Human struct {
 	age      int
 	height   int
 	eyeColor string
@@ -17,39 +13,41 @@ type HumanBuilder interface {
 	AddHeight(height int) HumanBuilder
 	AddEyeColor(color string) HumanBuilder
 	AddName(name string) HumanBuilder
-	Build() string
+	Build() Human
 }
 
 // NewHuman We're going to use this so we don't leak the actual builder
 func NewHuman() HumanBuilder {
-	return &human{}
+	return &Human{}
 }
 
-func (h *human) AddAge(age int) HumanBuilder {
+func (h *Human) AddAge(age int) HumanBuilder {
 	h.age = age
 	return h
 }
 
-func (h *human) AddHeight(height int) HumanBuilder {
+func (h *Human) AddHeight(height int) HumanBuilder {
 	h.height = height
 
 	return h
 }
 
-func (h *human) AddEyeColor(color string) HumanBuilder {
+func (h *Human) AddEyeColor(color string) HumanBuilder {
 	h.eyeColor = color
 
 	return h
 }
 
-func (h *human) AddName(name string) HumanBuilder {
+func (h *Human) AddName(name string) HumanBuilder {
 	h.name = name
 
 	return h
 }
-func (h *human) Build() string {
-	fullHuman := fmt.Sprintf("%s is %d years old, is %dcm tall and has %s eyes", h.name,
-		h.age, h.height, h.eyeColor)
-
-	return fullHuman
+func (h *Human) Build() Human {
+	return Human{
+		age:      h.age,
+		height:   h.height,
+		eyeColor: h.eyeColor,
+		name:     h.name,
+	}
 }
