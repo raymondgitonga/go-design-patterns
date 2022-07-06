@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+// Allows separation of abstraction from its implementation
+
 type Shape interface {
 	Height() float32
 	Perimeter() float32
@@ -39,7 +41,6 @@ func (t *TriangularShape) Color() string {
 	return t.color
 }
 
-//
 func (s *SquareShape) Perimeter() float32 {
 	return s.height * 4
 }
