@@ -14,18 +14,18 @@ type compoundInterest struct {
 	time           float64
 }
 
-func NewCalculator(kind int, principal float64, time int) InterestCalculator {
+func NewCalculator(kind int, principal float64, time float64) InterestCalculator {
 	if kind == 1 {
 		return &simpleInterest{
 			principal:      principal,
 			rateOfInterest: 10.00,
-			time:           12,
+			time:           time,
 		}
 	}
 	return &compoundInterest{
 		principal:      principal,
-		rateOfInterest: 10.00,
-		time:           12,
+		rateOfInterest: 2.00,
+		time:           time,
 	}
 }
 
