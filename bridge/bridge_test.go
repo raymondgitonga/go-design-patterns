@@ -13,13 +13,29 @@ func TestFactory_TriangleVolume(t *testing.T) {
 		color:  "blue",
 	}
 
-	calc := ShapeManipulator{
+	shape := ShapeManipulator{
 		shape: &triangle,
 	}
 
-	volume := calc.Volume()
+	volume := shape.Volume()
 
 	assert.Equal(t, float32(180), volume)
+}
+
+func TestFactory_SquareVolume(t *testing.T) {
+	square := SquareShape{
+		height: 4,
+		length: 4,
+		color:  "red",
+	}
+
+	shape := ShapeManipulator{
+		&square,
+	}
+
+	volume := shape.Volume()
+
+	assert.Equal(t, float32(64), volume)
 }
 
 func TestFactory_TriangleColor(t *testing.T) {
@@ -37,4 +53,20 @@ func TestFactory_TriangleColor(t *testing.T) {
 	color := calc.Color()
 
 	assert.Equal(t, "This is a blue shape", color)
+}
+
+func TestFactory_SqaureColor(t *testing.T) {
+	square := SquareShape{
+		height: 4,
+		length: 4,
+		color:  "red",
+	}
+
+	shape := ShapeManipulator{
+		&square,
+	}
+
+	volume := shape.Color()
+
+	assert.Equal(t, "This is a red shape", volume)
 }
