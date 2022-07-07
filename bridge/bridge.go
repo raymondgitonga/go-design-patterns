@@ -6,12 +6,6 @@ import (
 
 // Allows separation of abstraction from its implementation
 
-type Shape interface {
-	Height() float32
-	Perimeter() float32
-	Color() string
-}
-
 type TriangularShape struct {
 	height float32
 	base   float32
@@ -23,6 +17,12 @@ type SquareShape struct {
 	height float32
 	length float32
 	color  string
+}
+
+type Shape interface {
+	Height() float32
+	Perimeter() float32
+	Color() string
 }
 
 type ShapeManipulator struct {
