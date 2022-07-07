@@ -13,20 +13,10 @@ type TriangularShape struct {
 	color  string
 }
 
-type SquareShape struct {
-	height float32
-	length float32
-	color  string
-}
-
 type Shape interface {
 	Height() float32
 	Perimeter() float32
 	Color() string
-}
-
-type ShapeManipulator struct {
-	shape Shape
 }
 
 func (t *TriangularShape) Perimeter() float32 {
@@ -41,16 +31,8 @@ func (t *TriangularShape) Color() string {
 	return t.color
 }
 
-func (s *SquareShape) Perimeter() float32 {
-	return s.height * 4
-}
-
-func (s *SquareShape) Height() float32 {
-	return s.height
-}
-
-func (s *SquareShape) Color() string {
-	return s.color
+type ShapeManipulator struct {
+	shape Shape
 }
 
 //Implementation
