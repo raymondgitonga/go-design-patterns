@@ -1,4 +1,4 @@
-module github.com/raymondgitonga/go-designpatterns
+module github.com/raymondgitonga/go-design-patterns
 
 go 1.18
 
